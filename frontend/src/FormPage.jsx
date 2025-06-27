@@ -7,7 +7,7 @@ export default function FormPage() {
 
   const steps = [
     "name", "email", "phone", "experience", "education",
-    "competencies", "languages", "interests", "github"
+    "competencies", "languages", "interests", "photo", "github"
   ];
 
   const [currentStep, setCurrentStep] = useState(0);
