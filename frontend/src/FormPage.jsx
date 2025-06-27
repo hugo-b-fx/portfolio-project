@@ -22,7 +22,7 @@ export default function FormPage() {
     languages: "",
     interests: "",
     github: "",
-    userPrompt: "", // required by backend for AI summary
+    userPrompt: "", 
     photo: null,
     templateType: "paid",
     templateFile: "fancy.html"
