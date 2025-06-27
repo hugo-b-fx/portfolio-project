@@ -114,7 +114,7 @@ EMAIL_PASS=<your email password or app password>
 ## 📁 Folder Structure
 
 ```
-letterwizard/
+JobFinderAI/
 ├── backend/
 │   ├── routes/
 │   ├── modules/
