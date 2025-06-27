@@ -1,0 +1,63 @@
+<!-- free-template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Resume</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      color: #333;
+    }
+    h1, h2 {
+      margin-bottom: 0;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    p, li {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>{{name}}</h1>
+  <p><strong>Email:</strong> {{email}} | <strong>Phone:</strong> {{phone}}</p>
+
+  <h2>Summary</h2>
+  <p>{{summary}}</p>
+
+  <h2>Experience</h2>
+  <ul>
+    {{#each experience}}
+    <li><strong>{{title}}</strong> at {{company}} ({{start}} - {{end}})<br/>{{description}}</li>
+    {{/each}}
+  </ul>
+
+  <h2>Education</h2>
+  <ul>
+    {{#each education}}
+    <li><strong>{{degree}}</strong> - {{institution}} ({{year}})</li>
+    {{/each}}
+  </ul>
+
+  <h2>Skills</h2>
+  <ul>
+    {{#each skills}}
+    <li>{{this}}</li>
+    {{/each}}
+  </ul>
+</body>
+</html>

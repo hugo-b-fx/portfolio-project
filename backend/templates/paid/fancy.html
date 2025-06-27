@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Premium Resume - Upgraded</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body { overflow-x: hidden; padding: 0 20px; }
+    .container {
+      max-width: 850px;
+      width: 100%;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      padding: 0 20px;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: #f9f9f9; color: #333; font-size: 14px; line-height: 1.5; }
+    a { color: #1f6feb; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* Container + Accent Bar */
+    .container { position: relative; max-width: 900px; margin: 20px auto; background: #fff; display: grid; grid-template-columns: 1fr 3fr; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .container::before { content: ''; position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: #1f6feb; border-radius: 4px 0 0 4px; }
+
+    /* Sidebar */
+    .sidebar { background: #f0f0f0; padding: 20px; }
+    .sidebar .photo { width: 100%; padding-top: 100%; border-radius: 6px; background: #ddd center/cover no-repeat; margin-bottom: 20px; background-image: url('{{photoUrl}}'); }
+    .sidebar h2 { font-size: 16px; font-weight: 500; margin: 16px 0 8px; color: #1f6feb; border-bottom: 2px solid #1f6feb; padding-bottom: 4px; letter-spacing: 0.5px; }
+    .sidebar li { margin-bottom: 6px; font-size: 13px; }
+    .sidebar .qr { text-align: center; margin-top: 20px; }
+    .sidebar .qr img { width: 80px; }
+
+    /* Main + Header */
+    .main { padding: 30px; }
+    .header { display: flex; align-items: center; margin-bottom: 30px; }
+    .header .name {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      background: #1f6feb;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 6px;
+    }
+    .header .contact {
+      margin-left: 20px;
+      background: #fff;
+      color: #1f6feb;
+      padding: 10px 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .header .contact p + p { margin-top: 4px; }
+
+    /* Sections */
+    .section { margin-bottom: 28px; }
+    .section h2 { font-size: 18px; font-weight: 600; color: #1f6feb; margin-bottom: 10px; border-bottom: 2px solid #1f6feb; padding-bottom: 4px; letter-spacing: 0.5px; display: flex; align-items: center; }
+    .section h2 i { margin-right: 8px; }
+    .section p { margin-bottom: 10px; }
+
+    /* Timeline for Experience */
+    .experience-list { position: relative; padding-left: 20px; }
+    .experience-list::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: #ddd; }
+    .experience-list li { position: relative; margin-bottom: 20px; padding-left: 20px; }
+    .experience-list li::before { content: ''; position: absolute; left: 2px; top: 6px; width: 8px; height: 8px; background: #1f6feb; border-radius: 50%; }
+    .experience-list li strong { display: block; font-weight: 500; }
+    .experience-list .date { font-size: 12px; font-style: italic; color: #666; margin-bottom: 6px; }
+
+    /* Education List */
+    .education-list li { margin-bottom: 12px; }
+    .education-list li strong { display: block; font-weight: 500; }
+    .education-list .date { font-size: 12px; font-style: italic; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="photo"></div>
+      <h2><i class="fas fa-cogs"></i> COMPETENCIES</h2>
+      <ul>
+        {{#each competencies}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      <h2><i class="fas fa-language"></i> LANGUAGES</h2>
+      <ul>
+        {{#each languages}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      <h2><i class="fas fa-heart"></i> INTERESTS</h2>
+      <ul>
+        {{#each interests}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      {{#if qrUrl}}
+      <div class="qr">
+        <img src="{{qrUrl}}" alt="QR Code" />
+        <p>Portfolio</p>
+      </div>
+      {{/if}}
+    </aside>
+    <section class="main">
+      <div class="header">
+        <div class="name">{{name}}</div>
+        <div class="contact">
+          <p>{{email}}</p>
+          <p>{{phone}}</p>
+          {{#if github}}
+            <p><a href="{{github}}" target="_blank">{{github}}</a></p>
+          {{/if}}
+        </div>
+      </div>
+      <div class="section">
+        <h2><i class="fas fa-bullseye"></i> PROFESSIONAL OBJECTIVE</h2>
+        <p>{{aiResponse}}</p>
+      </div>
+      <div class="section">
+        <h2><i class="fas fa-briefcase"></i> EXPERIENCE</h2>
+        <ul class="experience-list">
+          {{#each experience}}
+            <li>
+              <strong>{{title}} – {{company}}</strong>
+              <div class="date">{{start}} – {{end}}</div>
+              <p>{{description}}</p>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="section">
+        <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
+        <ul class="education-list">
+          {{#each education}}
+            <li>
+              <strong>{{degree}}</strong>
+              <div class="date">{{institution}}, {{year}}</div>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
