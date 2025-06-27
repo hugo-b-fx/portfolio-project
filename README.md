@@ -51,7 +51,7 @@ JobFinderAI is a full-stack web application that allows users to generate elegan
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/your-username/letterwizard.git
-cd letterwizard
+cd JobFinderAI
 ```
 
 ### 2. Setup backend
